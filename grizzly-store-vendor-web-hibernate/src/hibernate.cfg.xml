@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        
+        <property name = "hibernate.dialect">org.hibernate.dialect.MySQL5Dialect </property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/grizzly_storeDB</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.pool_size">10</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        
+        
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="use_sql_comments">true</property>
+        
+        <!-- Drops the the table if previously exists and make new table -->
+       	<!-- <property name="hbm2ddl.auto">create</property> --> 
+        
+        <!-- Checks if table exists previously and makes instertions accordingly to table if not it creates table   -->
+       	<!--   <property name="hbm2ddl.auto">update</property> -->
+        
+        <!-- checks if old table exists or not  -->
+       	<property name="hbm2ddl.auto">validate</property> 
+        
+        <!-- creates table and drops after the qureies are executed -->
+       	<!-- <property name="hbm2ddl.auto">create-drop</property> --> 
+        
+        <!-- Mapping Entities -->
+        <mapping class="com.grizzly.entity.UserDetailsEntity"></mapping>
+        <mapping class="com.grizzly.entity.ProductDetailsEntity"></mapping>
+        <mapping class="com.grizzly.entity.InventoryEntity"></mapping>
+		
+    </session-factory>
+</hibernate-configuration>
